@@ -1,0 +1,45 @@
+{
+  "name": "infinimesh-proto",
+  "version": "3.1.5-9",
+  "type": "module",
+  "description": "Buf generated gRPC and Connect API ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "npx buf generate --template buf.gen.web.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinimesh/proto.git"
+  },
+  "files": [
+    "build/es",
+    "build/nodejs",
+    "mocks/es"
+  ],
+  "keywords": [
+    "grpc",
+    "buf",
+    "protobuf",
+    "infinimesh",
+    "iot",
+    "connectrpc"
+  ],
+  "author": "slnt_opp",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/infinimesh/proto/issues"
+  },
+  "homepage": "https://github.com/infinimesh/proto#readme",
+  "dependencies": {
+    "@bufbuild/protobuf": "^1.7.2",
+    "@connectrpc/connect": "^1.4.0",
+    "@connectrpc/connect-web": "^1.4.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.30.0",
+    "@bufbuild/protoc-gen-es": "^1.7.2",
+    "@connectrpc/protoc-gen-connect-es": "^1.4.0",
+    "@types/uuid": "^9.0.8"
+  }
+}

@@ -1,0 +1,86 @@
+/*
+Copyright © 2021-2023 Infinite Devices GmbH
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+syntax = "proto3";
+package infinimesh.plugins;
+
+import "google/api/annotations.proto";
+import "node/access/access.proto";
+
+enum PluginKind {
+  UNKNOWN = 0;
+  EMBEDDED = 1; // Plugin will be embedded into Console as Dashboard
+  DEVICE = 2; // Plugin entrypoint page will replace device State Card, and edit
+              // button will open plugin edit page in Modal
+}
+
+message Plugin {
+  string uuid = 1;
+  string logo = 2; // Plugin logo url in format supported by <img> tag
+  string title = 3;
+  string description = 4;
+  // (optionally Markdown) long description Marketplace like
+
+  bool public = 5; // see Namespace field
+
+  optional string namespace = 6; // Required to get not-public Plugin
+  optional infinimesh.node.access.Access access = 7;
+
+  PluginKind kind = 8;
+  repeated string vars = 9;
+
+  optional EmbededPluginConf embedded_conf = 10;
+  optional DevicePluginConf device_conf = 11;
+}
+
+message Plugins { repeated Plugin pool = 1; }
+
+message EmbededPluginConf { string frame_url = 1; }
+message DevicePluginConf {
+  string view_url = 1;
+  string desired_url = 2;
+}
+
+message ListRequest { optional string namespace = 1; }
+
+service PluginsService {
+  rpc Get(Plugin) returns (Plugin) {
+    option (google.api.http) = {
+      get : "/plugins/{uuid}"
+    };
+  };
+  rpc List(ListRequest) returns (Plugins) {
+    option (google.api.http) = {
+      get : "/plugins"
+    };
+  };
+  rpc Create(Plugin) returns (Plugin) {
+    option (google.api.http) = {
+      put : "/plugins"
+      body : "*"
+    };
+  };
+  rpc Update(Plugin) returns (Plugin) {
+    option (google.api.http) = {
+      post : "/plugins/{uuid}"
+      body : "*"
+    };
+  };
+  rpc Delete(Plugin) returns (Plugin) {
+    option (google.api.http) = {
+      delete : "/plugins/{uuid}"
+    };
+  };
+}

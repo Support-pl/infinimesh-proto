@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package infinimesh.eventbus;
+
+import "node/accounts/accounts.proto";
+import "node/namespaces/namespaces.proto";
+import "node/devices/devices.proto";
+import "node/node.proto";
+import "google/protobuf/struct.proto";
+import "google/api/annotations.proto";
+
+enum EventKind{
+  NONE = 0;
+  ACCOUNT_CREATE = 1;
+  ACCOUNT_UPDATE = 2;
+  ACCOUNT_DELETE = 3;
+  ACCOUNT_MOVE = 4;
+  NAMESPACE_CREATE = 5;
+  NAMESPACE_UPDATE = 6;
+  NAMESPACE_DELETE = 7;
+  DEVICE_CREATE = 8;
+  DEVICE_UPDATE = 9;
+  DEVICE_DELETE = 10;
+  DEVICE_MOVE = 11;
+}
+
+message Event {
+  EventKind event_kind = 1;
+  oneof entity {
+    node.accounts.Account account = 2;
+    node.namespaces.Namespace namespace = 3;
+    node.devices.Device device = 4;
+  }
+  google.protobuf.Struct meta = 5;
+}
+
+service EventsService{
+  rpc Subscribe (node.EmptyMessage) returns (stream Event);
+}

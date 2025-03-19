@@ -1,0 +1,8 @@
+version: v1
+plugins:
+  - plugin: es
+    out: build/es
+    opt: target=js+dts
+  - plugin: connect-es
+    out: build/es
+    opt: target=js+dts

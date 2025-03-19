@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+package infinimesh.timeseries;
+
+message DataPoint {
+  int64 ts = 1;
+  double value = 2;
+}
+
+enum DuplicatePolicy {
+  USE_FIRST = 0;
+  USE_LAST = 1;
+}
+
+message WriteRequest {
+  string device = 1;
+  string metric = 2;
+  DataPoint data_point = 3;
+  DuplicatePolicy duplicate_policy = 4;
+}
+
+message WriteResponse {
+  bool result = 1;
+  int64 ts = 2;
+}
+
+message WriteBulkRequest {
+  string device = 1;
+  string metric = 2;
+  repeated DataPoint data_points = 3;
+  DuplicatePolicy duplicate_policy = 4;
+}
+
+message WriteBulkResponse {
+  bool result = 1;
+}
+
+enum AggregationType {
+  NONE = 0;
+  SUM = 1;
+  MIN = 2;
+  MAX = 3;
+  AVG = 4;
+  RANGE = 5;
+  COUNT = 6;
+  FIRST = 7;
+  LAST = 8;
+  STD_P = 9;
+  STD_S = 10;
+  VAR_P = 11;
+  VAR_S = 12;
+  TWA = 13;
+}
+
+message Aggregation{
+  int64 value = 1;
+  AggregationType aggregation_type = 2;
+}
+
+message ReadRequest {
+  string device = 1;
+  repeated string metrics = 2;
+  int64 from = 3;
+  optional int64 to = 4;
+  optional Aggregation aggregation = 5;
+}
+
+message MetricInfo {
+  string metric = 1;
+  repeated DataPoint data_points = 2;
+}
+
+message ReadResponse {
+  repeated MetricInfo metrics_info = 1;
+}
+
+message Metric {
+  string name = 1;
+  uint32 data_points = 2;
+  DataPoint earliest = 3;
+  DataPoint latest = 4;
+}
+
+message DeviceMetric {
+  string device = 1;
+  repeated Metric metrics = 2;
+}
+
+message StatRequest {
+  optional string namespace = 1;
+  optional string device = 2;
+}
+
+message StatResponse {
+  repeated DeviceMetric device_metrics = 1;
+}
+
+message FlushRequest {
+  optional string namespace = 1;
+  optional string device = 2;
+}
+
+message FlushResponse {
+  bool result = 1;
+}
+
+service TimeseriesService {
+  rpc Write (WriteRequest) returns (WriteResponse);
+  rpc WriteBulk (WriteBulkRequest) returns (WriteBulkResponse);
+  rpc Read (ReadRequest) returns (ReadResponse);
+  rpc Stat (StatRequest) returns (StatResponse);
+  rpc Flush (FlushRequest) returns (FlushResponse);
+}

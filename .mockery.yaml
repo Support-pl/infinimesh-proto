@@ -1,0 +1,56 @@
+with-expecter: true
+outpkg: "{{.PackageName}}_mocks"
+packages:
+  github.com/infinimesh/proto/eventbus:
+    interfaces:
+      EventsServiceClient:
+  github.com/infinimesh/proto/eventbus/eventbusconnect:
+    interfaces:
+      EventsServiceClient:
+
+  github.com/infinimesh/proto/handsfree:
+    interfaces:
+      HandsfreeServiceClient:
+  github.com/infinimesh/proto/handsfree/handsfreeconnect:
+    interfaces:
+      HandsfreeServiceClient:
+
+  github.com/infinimesh/proto/node:
+    interfaces:
+      AccountsServiceClient:
+      DevicesServiceClient:
+      NamespacesServiceClient:
+      SessionsServiceClient:
+      ShadowServiceClient:
+      InternalServiceClient:
+
+  github.com/infinimesh/proto/node/nodeconnect:
+    interfaces:
+      AccountsServiceClient:
+      DevicesServiceClient:
+      NamespacesServiceClient:
+      SessionsServiceClient:
+      ShadowServiceClient:
+      InternalServiceClient:
+
+  github.com/infinimesh/proto/shadow:
+    interfaces:
+      ShadowServiceClient:
+      ShadowService_StreamShadowServer:
+  github.com/infinimesh/proto/shadow/shadowconnect:
+    interfaces:
+      ShadowServiceClient:
+
+  github.com/infinimesh/proto/plugins:
+    interfaces:
+      PluginsServiceClient:
+  github.com/infinimesh/proto/plugins/pluginsconnect:
+    interfaces:
+      PluginsServiceClient:
+
+  github.com/infinimesh/proto/timeseries:
+    interfaces:
+      TimeseriesServiceClient:
+  github.com/infinimesh/proto/timeseries/timeseriesconnect:
+    interfaces:
+      TimeseriesServiceClient:
