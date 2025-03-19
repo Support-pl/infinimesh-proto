@@ -18,7 +18,7 @@ import (
 
 	"google.golang.org/protobuf/types/known/anypb"
 
-	access "github.com/infinimesh/proto/node/access"
+	access "github.com/support-pl/infinimesh-proto/node/access"
 )
 
 // ensure the imports are used
@@ -117,7 +117,7 @@ type TokenRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m TokenRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -219,7 +219,7 @@ type TokenResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m TokenResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -350,7 +350,7 @@ type SetCredentialsRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m SetCredentialsRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -452,7 +452,7 @@ type SetCredentialsResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m SetCredentialsResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -556,7 +556,7 @@ type GetCredentialsRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m GetCredentialsRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -692,7 +692,7 @@ type GetCredentialsResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m GetCredentialsResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -798,7 +798,7 @@ type DeleteCredentialsRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m DeleteCredentialsRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -900,7 +900,7 @@ type DeleteResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m DeleteResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -999,7 +999,7 @@ type EmptyMessageMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m EmptyMessageMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -1164,7 +1164,7 @@ type QueryRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m QueryRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -1267,7 +1267,7 @@ type MoveRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m MoveRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -1372,7 +1372,7 @@ type JoinRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m JoinRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -1478,7 +1478,7 @@ type JoinGeneralRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m JoinGeneralRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -1584,7 +1584,7 @@ type DevicesTokenRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m DevicesTokenRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -1688,7 +1688,7 @@ type LDAPProvidersMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m LDAPProvidersMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}

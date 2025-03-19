@@ -1,21 +1,21 @@
 with-expecter: true
 outpkg: "{{.PackageName}}_mocks"
 packages:
-  github.com/infinimesh/proto/eventbus:
+  github.com/support-pl/infinimesh-proto/proto/eventbus:
     interfaces:
       EventsServiceClient:
-  github.com/infinimesh/proto/eventbus/eventbusconnect:
+  github.com/support-pl/infinimesh-proto/eventbus/eventbusconnect:
     interfaces:
       EventsServiceClient:
 
-  github.com/infinimesh/proto/handsfree:
+  github.com/support-pl/infinimesh-proto/handsfree:
     interfaces:
       HandsfreeServiceClient:
-  github.com/infinimesh/proto/handsfree/handsfreeconnect:
+  github.com/support-pl/infinimesh-proto/handsfree/handsfreeconnect:
     interfaces:
       HandsfreeServiceClient:
 
-  github.com/infinimesh/proto/node:
+  github.com/support-pl/infinimesh-proto/node:
     interfaces:
       AccountsServiceClient:
       DevicesServiceClient:
@@ -24,7 +24,7 @@ packages:
       ShadowServiceClient:
       InternalServiceClient:
 
-  github.com/infinimesh/proto/node/nodeconnect:
+  github.com/support-pl/infinimesh-proto/node/nodeconnect:
     interfaces:
       AccountsServiceClient:
       DevicesServiceClient:
@@ -33,24 +33,24 @@ packages:
       ShadowServiceClient:
       InternalServiceClient:
 
-  github.com/infinimesh/proto/shadow:
+  github.com/support-pl/infinimesh-proto/shadow:
     interfaces:
       ShadowServiceClient:
       ShadowService_StreamShadowServer:
-  github.com/infinimesh/proto/shadow/shadowconnect:
+  github.com/support-pl/infinimesh-proto/shadow/shadowconnect:
     interfaces:
       ShadowServiceClient:
 
-  github.com/infinimesh/proto/plugins:
+  github.com/support-pl/infinimesh-proto/plugins:
     interfaces:
       PluginsServiceClient:
-  github.com/infinimesh/proto/plugins/pluginsconnect:
+  github.com/support-pl/infinimesh-proto/plugins/pluginsconnect:
     interfaces:
       PluginsServiceClient:
 
-  github.com/infinimesh/proto/timeseries:
+  github.com/support-pl/infinimesh-proto/timeseries:
     interfaces:
       TimeseriesServiceClient:
-  github.com/infinimesh/proto/timeseries/timeseriesconnect:
+  github.com/support-pl/infinimesh-proto/timeseries/timeseriesconnect:
     interfaces:
       TimeseriesServiceClient:

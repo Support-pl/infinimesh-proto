@@ -23,7 +23,7 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	plugins "github.com/infinimesh/proto/plugins"
+	plugins "github.com/support-pl/infinimesh-proto/plugins"
 	http "net/http"
 	strings "strings"
 )

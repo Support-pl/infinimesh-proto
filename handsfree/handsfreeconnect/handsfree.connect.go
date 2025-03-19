@@ -23,7 +23,7 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	handsfree "github.com/infinimesh/proto/handsfree"
+	handsfree "github.com/support-pl/infinimesh-proto/handsfree"
 	http "net/http"
 	strings "strings"
 )

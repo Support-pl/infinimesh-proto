@@ -8,7 +8,7 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	timeseries "github.com/infinimesh/proto/timeseries"
+	timeseries "github.com/support-pl/infinimesh-proto/timeseries"
 	http "net/http"
 	strings "strings"
 )

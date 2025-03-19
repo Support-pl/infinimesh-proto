@@ -23,7 +23,7 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	shadow "github.com/infinimesh/proto/shadow"
+	shadow "github.com/support-pl/infinimesh-proto/shadow"
 	http "net/http"
 	strings "strings"
 )

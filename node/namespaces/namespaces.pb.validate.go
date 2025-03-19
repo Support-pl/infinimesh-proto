@@ -73,7 +73,7 @@ type PluginMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m PluginMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -271,7 +271,7 @@ type NamespaceMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m NamespaceMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -404,7 +404,7 @@ type NamespacesMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m NamespacesMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}

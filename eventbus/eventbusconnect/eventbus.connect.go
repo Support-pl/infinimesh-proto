@@ -8,8 +8,8 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	eventbus "github.com/infinimesh/proto/eventbus"
-	node "github.com/infinimesh/proto/node"
+	eventbus "github.com/support-pl/infinimesh-proto/eventbus"
+	node "github.com/support-pl/infinimesh-proto/node"
 	http "net/http"
 	strings "strings"
 )

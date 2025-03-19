@@ -199,7 +199,7 @@ type DeviceMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m DeviceMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -304,7 +304,7 @@ type CertificateMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m CertificateMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -438,7 +438,7 @@ type DevicesMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m DevicesMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -540,7 +540,7 @@ type HandsfreeCreateMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m HandsfreeCreateMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -704,7 +704,7 @@ type CreateRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m CreateRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -833,7 +833,7 @@ type CreateResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m CreateResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -935,7 +935,7 @@ type GetByFingerprintRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m GetByFingerprintRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}

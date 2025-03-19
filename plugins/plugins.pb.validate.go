@@ -184,7 +184,7 @@ type PluginMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m PluginMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -316,7 +316,7 @@ type PluginsMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m PluginsMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -418,7 +418,7 @@ type EmbededPluginConfMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m EmbededPluginConfMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -524,7 +524,7 @@ type DevicePluginConfMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m DevicePluginConfMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -627,7 +627,7 @@ type ListRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m ListRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
