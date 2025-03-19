@@ -1,6 +1,6 @@
 module github.com/support-pl/infinimesh-proto
 
-go 1.18
+go 1.20
 
 require (
 	connectrpc.com/connect v1.16.0
